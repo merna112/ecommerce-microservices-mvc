@@ -1,0 +1,15 @@
+{
+    "name": "order-service",
+    "version": "1.0.0",
+    "description": "Order microservice for online orders system",
+    "main": "src/index.js",
+    "scripts": {
+        "start": "node src/index.js"
+    },
+    "dependencies": {
+        "amqplib": "^0.10.5",
+        "axios": "^1.8.4",
+        "express": "^4.21.2",
+        "mongoose": "^8.12.1"
+    }
+}

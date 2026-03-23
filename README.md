@@ -1,8 +1,5 @@
 # Online Orders System — Microservices
 
-A Node.js microservices system for managing online orders, built with Express, MongoDB, RabbitMQ, and Docker.
-
----
 
 ## Project Structure
 

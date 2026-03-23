@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <title>Courses</title>
+  <style>
+    body { font-family: Arial; margin: 24px; }
+    .card { border: 1px solid #ddd; padding: 12px; border-radius: 8px; margin-bottom: 12px; }
+    .error { color: #b00020; }
+    input { padding: 8px; width: 320px; margin: 6px 0; }
+    button { padding: 8px 14px; cursor: pointer; }
+  </style>
+</head>
+<body>
+
+  <h1>Courses</h1>
+
+  <% if (errors && errors.length) { %>
+    <div class="card">
+      <h3 class="error">Validation Errors</h3>
+      <ul>
+        <% errors.forEach(e => { %>
+          <li class="error"><%= e.msg %></li>
+        <% }) %>
+      </ul>
+    </div>
+  <% } %>
+
+  <h2>All Courses</h2>
+  <% if (!courses || courses.length === 0) { %>
+    <p>No courses found.</p>
+  <% } else { %>
+    <% courses.forEach(c => { %>
+      <div class="card">
+        <strong><%= c.name %></strong>
+        <% if (c.title) { %> - <em><%= c.title %></em> <% } %>
+        <div><%= c.description %></div>
+      </div>
+    <% }) %>
+  <% } %>
+
+  <hr />
+
+  <h2>Add New Course</h2>
+  <form action="/courses/page/add" method="POST">
+    <div>
+      <input name="name" placeholder="Course Name" required />
+    </div>
+    <div>
+      <input name="title" placeholder="Title (optional)" />
+    </div>
+    <div>
+      <input name="description" placeholder="Description" required />
+    </div>
+    <button type="submit">Add</button>
+  </form>
+
+</body>
+</html>

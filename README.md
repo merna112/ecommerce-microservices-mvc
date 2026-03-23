@@ -72,20 +72,8 @@ This project follows a hybrid architecture:
 - View: JSON API responses returned by controllers (API-style MVC).
 - Routing and orchestration: Express routes in each `routes/` folder, business/integration logic in each `services/` folder.
 
-```
-┌──────────────┐     HTTP      ┌──────────────┐    RabbitMQ     ┌─────────────────────┐
-│  user-service│◄──────────────│ order-service│────order.created►│notification-service │
-│   port 3001  │               │   port 3002  │                  │      port 3003      │
-│   user-db    │               │   order-db   │                  │   notification-db   │
-│  (mongo:27017)│              │  (mongo:27018)│                 │    (mongo:27019)    │
-└──────────────┘               └──────────────┘                  └─────────────────────┘
-                                      │
-                               ┌──────▼──────┐
-                               │  rabbitmq   │
-                               │  port 5672  │
-                               │  UI: 15672  │
-                               └─────────────┘
-```
+<img width="1233" height="658" alt="444444444" src="https://github.com/user-attachments/assets/9d7fba04-0fae-467b-a2ab-eb7250c32785" />
+
 
 ### Services
 
